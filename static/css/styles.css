@@ -3,6 +3,10 @@ ul, li {
     padding-left: 0;
 }
 
+.header {
+    margin-top: 15px;
+}
+
 body {
     background-color: lightgoldenrodyellow;
 }

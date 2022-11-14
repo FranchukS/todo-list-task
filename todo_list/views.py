@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from todo_list.forms import TaskForm
-from todo_list.models import Task
+from todo_list.models import Task, Tag
 
 
 class TaskListView(generic.ListView):
@@ -38,3 +38,13 @@ def complete_or_undo(request, pk):
         task.is_done = True
         task.save()
     return HttpResponseRedirect(reverse_lazy("todo-list:index"))
+
+
+class TagListView(generic.ListView):
+    model = Tag
+
+
+class TagCreateView(generic.CreateView):
+    model = Tag
+    success_url = reverse_lazy("todo-list:index")
+
