@@ -1,0 +1,24 @@
+ul, li {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.header {
+    margin-top: 15px;
+}
+
+body {
+    background-color: white;
+}
+
+a {
+    font-weight: bold;
+}
+
+.content {
+    font-weight: bold;
+}
+
+.timer {
+    font-size: small;
+}
