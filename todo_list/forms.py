@@ -10,7 +10,8 @@ class TaskForm(forms.ModelForm):
         required=False
     )
     deadline = forms.DateTimeField(
-        widget=forms.SelectDateWidget
+        widget=forms.SelectDateWidget,
+        required=False
     )
 
     class Meta:
