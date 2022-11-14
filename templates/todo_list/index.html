@@ -2,26 +2,30 @@
 
 {% block content %}
   <h1>TODO list <a style="float: right" href="{% url 'todo-list:task-create' %}" class="btn btn-primary">Add task</a></h1>
+  <br>
   <ul>
     {% for task in task_list %}
       <li>
         <div class="content">
           {{ task.content }}
           {% if task.is_done %} <span style="color: green">Done</span>
+            <a style="float: right" class="btn btn-secondary" href="{% url 'todo-list:task-complete-or-undo' pk=task.id %}">Undo</a>
             {% else %}<span style="color: red">Not done</span>
+            <a style="float: right" class="btn btn-success" href="{% url 'todo-list:task-complete-or-undo' pk=task.id %}">Complete</a>
           {% endif %}
         </div>
 
         <div class="timer">
           <p>Created: {{ task.datetime }}
-            {% if task.is_done %} <span style="color: brown">Deadline: {{ task.deadline }}</span>{% endif %}</p>
+            {% if task.deadline %} <span style="color: brown">Deadline: {{ task.deadline }}</span>{% endif %}</p>
         </div>
 
         <div class="tags">
           <p>Tags: {% for tag in task.tags.all %} {{ tag.name }} {% endfor %}
             <a href="{% url 'todo-list:task-update' pk=task.id %}">Update</a>
-            <a href="">Delete</a></p>
+            <a href="{% url 'todo-list:task-delete' pk=task.id %}">Delete</a></p>
         </div>
+        <hr>
       </li>
     {% endfor %}
   </ul>
