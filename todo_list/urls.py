@@ -16,6 +16,7 @@ urlpatterns = [
     path("task/<int:pk>/complete-or-undo/", complete_or_undo, name="task-complete-or-undo"),
 
     path("tags", TagListView.as_view(), name="tag-list"),
+    path("tags/create/", TagCreateView.as_view(), name="tag-create"),
 
 ]
 
