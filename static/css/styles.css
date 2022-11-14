@@ -8,5 +8,17 @@ ul, li {
 }
 
 body {
-    background-color: lightgoldenrodyellow;
+    background-color: white;
+}
+
+a {
+    font-weight: bold;
+}
+
+.content {
+    font-weight: bold;
+}
+
+.timer {
+    font-size: small;
 }
